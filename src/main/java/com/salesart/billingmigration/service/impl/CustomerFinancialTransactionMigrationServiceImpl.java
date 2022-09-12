@@ -32,8 +32,7 @@ public class CustomerFinancialTransactionMigrationServiceImpl implements Custome
             TransactionTypeEnum transactionTypeEnum = TransactionTypeHelper.TRANSACTION_TYPE_PER_BILLING_TYPE_MAP_PER_KEY
                     .get(mapKey)
                     .get(billing.getBillingType());
-            Long aLong = customerFinancialTransactionClientService.create(billing, transactionTypeEnum);
-            System.out.println("Success id : " + aLong);
+            customerFinancialTransactionClientService.create(billing, transactionTypeEnum);
         });
     }
 }
