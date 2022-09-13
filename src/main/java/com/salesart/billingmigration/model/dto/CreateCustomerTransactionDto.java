@@ -1,11 +1,11 @@
 package com.salesart.billingmigration.model.dto;
 
-import io.salesart.core.entities.PaymentType;
-import io.salesart.core.entities.user.User;
-import io.salesart.core.enums.CustomerTransactionStatusEnum;
-import io.salesart.core.enums.ModuleEnum;
-import io.salesart.core.enums.RequestSourceEnum;
-import io.salesart.core.enums.TransactionTypeEnum;
+import com.salesart.billingmigration.entity.PaymentType;
+import com.salesart.billingmigration.entity.User;
+import com.salesart.billingmigration.model.enums.CustomerTransactionStatusEnum;
+import com.salesart.billingmigration.model.enums.ModuleEnum;
+import com.salesart.billingmigration.model.enums.RequestSourceEnum;
+import com.salesart.billingmigration.model.enums.TransactionTypeEnum;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

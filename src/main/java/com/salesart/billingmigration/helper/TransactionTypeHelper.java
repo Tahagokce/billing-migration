@@ -1,10 +1,10 @@
 package com.salesart.billingmigration.helper;
 
-import io.salesart.core.enums.BillingTypeEnum;
-import io.salesart.core.enums.OrderTypeEnum;
-import io.salesart.core.enums.TransactionTypeEnum;
-import io.salesart.core.enums.TransactionTypeGroup;
-import io.salesart.core.enums.TransactionTypeGroupForCampaign;
+import com.salesart.billingmigration.entity.BillingTypeEnum;
+import com.salesart.billingmigration.model.enums.OrderTypeEnum;
+import com.salesart.billingmigration.model.enums.TransactionTypeEnum;
+import com.salesart.billingmigration.model.enums.TransactionTypeGroup;
+import com.salesart.billingmigration.model.enums.TransactionTypeGroupForCampaign;
 
 import java.util.ArrayList;
 import java.util.EnumMap;

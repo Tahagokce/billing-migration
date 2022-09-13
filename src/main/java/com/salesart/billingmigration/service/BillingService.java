@@ -2,7 +2,7 @@ package com.salesart.billingmigration.service;
 
 
 
-import io.salesart.core.entities.Billing;
+import com.salesart.billingmigration.entity.Billing;
 
 import java.util.Date;
 import java.util.List;
