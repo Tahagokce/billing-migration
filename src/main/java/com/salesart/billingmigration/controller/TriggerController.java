@@ -1,6 +1,5 @@
 package com.salesart.billingmigration.controller;
 
-import com.salesart.billingmigration.entity.Customer;
 import com.salesart.billingmigration.exception.DateFormatException;
 import com.salesart.billingmigration.service.CustomerFinancialTransactionMigrationService;
 import com.salesart.billingmigration.service.CustomerService;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("api/trigger")
