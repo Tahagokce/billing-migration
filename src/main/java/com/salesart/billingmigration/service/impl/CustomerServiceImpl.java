@@ -55,6 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public CustomerRiskInfo prepareRiskInfoForSave(BigDecimal riskLimit, OverRiskLimitEnum overRiskLimitEnum) {
+        log.info("[CustomerServiceImpl] -> [prepareRiskInfoForSave]" );
         CustomerRiskInfo customerRiskInfo = new CustomerRiskInfo();
         customerRiskInfo.setIsDeleted(false);
         customerRiskInfo.setEnabled(true);
@@ -65,11 +66,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<Customer> findAllByCreateDateLessThanAndCustomerRiskInfoIsNull(Date createDate) {
+        log.info("[CustomerServiceImpl] -> [findAllByCreateDateLessThanAndCustomerRiskInfoIsNull] : search customer by createDate less than " + createDate.toString());
         return customerRepository.findAllByCreateDateLessThanAndCustomerRiskInfoIsNull(createDate);
     }
 
     @Override
     public List<Customer> saveAll(List<Customer> customers) {
+        log.info("[CustomerServiceImpl] -> [saveAll] : Number of users to register " +customers.size());
         return customerRepository.saveAll(customers);
     }
 }

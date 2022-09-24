@@ -23,15 +23,17 @@ public class TriggerController {
 
     @GetMapping("billing-migration")
     public ResponseEntity<Void> billingMigration() throws DateFormatException {
-        log.info("[BillingMigrationController] -> [trigger] Request Arrived.");
+        log.info("[TriggerController] -> [billingMigration] Request Arrived.");
         this.customerFinancialTransactionMigrationService.billingMigrationToCustomerFinancialTransaction();
-        log.info("[BillingMigrationController] -> [trigger] Request Completed Successfully.");
+        log.info("[TriggerController] -> [billingMigration] Request Completed Successfully.");
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("customer-risk-info-create")
     public ResponseEntity<Void> customerRiskInfoCreate()  {
-        List<Customer> customer = customerService.createCustomerRiskInfo();
+        log.info("[TriggerController] -> [customerRiskInfoCreate] Request Arrived.");
+        customerService.createCustomerRiskInfo();
+        log.info("[TriggerController] -> [customerRiskInfoCreate] Request Completed Successfully.");
         return ResponseEntity.ok().build();
     }
 }
