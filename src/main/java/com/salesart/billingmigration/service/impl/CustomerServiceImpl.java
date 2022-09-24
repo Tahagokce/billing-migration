@@ -55,7 +55,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public CustomerRiskInfo prepareRiskInfoForSave(BigDecimal riskLimit, OverRiskLimitEnum overRiskLimitEnum) {
-        log.info("[CustomerServiceImpl] -> [prepareRiskInfoForSave]" );
         CustomerRiskInfo customerRiskInfo = new CustomerRiskInfo();
         customerRiskInfo.setIsDeleted(false);
         customerRiskInfo.setEnabled(true);
@@ -72,7 +71,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> saveAll(List<Customer> customers) {
-        log.info("[CustomerServiceImpl] -> [saveAll] : Number of users to register " +customers.size());
+        log.info("[CustomerServiceImpl] -> [saveAll] : Number of customer to save " +customers.size());
         return customerRepository.saveAll(customers);
     }
 }

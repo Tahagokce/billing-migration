@@ -17,7 +17,7 @@ public class CustomerRiskInfoServiceImpl implements CustomerRiskInfoService {
 
     @Override
     public List<CustomerRiskInfo> saveAll(List<CustomerRiskInfo> customerRiskInfoList) {
-        log.info("[CustomerRiskInfoServiceImpl] -> [saveAll] : Number of users to register " +customerRiskInfoList.size());
+        log.info("[CustomerRiskInfoServiceImpl] -> [saveAll] : Number of customer risk info to save " +customerRiskInfoList.size());
         return customerRiskInfoRepository.saveAll(customerRiskInfoList);
     }
 }
