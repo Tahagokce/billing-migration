@@ -36,20 +36,20 @@ public class CustomerFinancialTransactionMigrationServiceImpl implements Custome
         } else {
             log.info("[CustomerFinancialTransactionMigrationServiceImpl] -> [billingMigrationToCustomerFinancialTransaction] : Migration Starting, number of invoices to be migrated {}", allBilling.size());
             allBilling.forEach(billing -> {
-                customerFinancialTransactionClientService.create(billing, transactionTypeSelector(billing.getBillingType()));
+                TransactionTypeEnum transactionType = transactionTypeSelector(billing.getBillingType());
+                if (Objects.nonNull(transactionType)) {
+                    customerFinancialTransactionClientService.create(billing, transactionType);
+                }
             });
         }
     }
 
     private TransactionTypeEnum transactionTypeSelector(BillingTypeEnum billingTypeEnum) {
-        final TransactionTypeEnum[] transactionTypeEnum = new TransactionTypeEnum[1];
-        Arrays.stream(TransactionTypeEnum.values()).collect(Collectors.toList()).forEach(transactionType -> {
-            if (transactionType.getTransactionTypeGroup().equals(TransactionTypeGroup.INVOICE)) {
-                if (transactionType.toString().equals(billingTypeEnum.toString())) {
-                    transactionTypeEnum[0] = transactionType;
-                }
+        for (Map.Entry<TransactionTypeEnum, BillingTypeEnum> transactionTypeEnumBillingTypeEnumEntry : TransactionTypeHelper.BILLING_TYPE_PER_TRANSACTION_TYPE.entrySet()) {
+            if (transactionTypeEnumBillingTypeEnumEntry.getValue().equals(billingTypeEnum) && transactionTypeEnumBillingTypeEnumEntry.getKey().isEligibleToWriteBalanceTransaction()) {
+                return transactionTypeEnumBillingTypeEnumEntry.getKey();
             }
-        });
-        return transactionTypeEnum[0];
+        }
+        return null;
     }
 }
