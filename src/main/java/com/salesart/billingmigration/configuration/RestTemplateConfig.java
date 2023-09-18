@@ -13,12 +13,10 @@ import java.util.List;
 public class RestTemplateConfig {
     @Bean
     public RestTemplate restTemplate() {
-
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.setMessageConverters(getJsonMessageConverters());
         return restTemplate;
     }
-
 
     @Bean
     private List<HttpMessageConverter<?>> getJsonMessageConverters() {
